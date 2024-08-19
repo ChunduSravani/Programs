@@ -1,0 +1,53 @@
+public class Union {
+	static int[] merge(int a[],int b[]) {
+		int n=a.length;
+		int m=b.length;
+		int ans[]=new int[n+m];
+		int index=0;
+		int i=0,j=0;
+		while(i<n&&j<m) {
+			if(a[i]<=b[j]) {
+				if(index==0||ans[index-1]!=a[i]) {
+					ans[index]=a[i];
+					index++;
+				}
+				i++;
+			}
+			else {
+				if(index==0||ans[index-1]!=b[j]) {
+					ans[index]=b[j];
+					index++;
+				}
+				j++;
+			}
+		}
+		while(i<n) {
+			if(index==0||ans[index-1]!=a[i]) {
+				ans[index]=a[i];
+				index++;
+			}
+			i++;
+		}
+		while(j<m) {
+			if(index==0||ans[index-1]!=b[j]) {
+				ans[index]=b[j];
+				index++;
+			}
+			j++;
+		}
+		return ans;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[]= {1,2,3,4};
+		int b[]= {3,4,4,5,6};
+		int ans[]=merge(a,b);
+		for(int i=0;i<ans.length;i++) {
+			if(ans[i]!=0) {
+			System.out.print(ans[i]+" ");
+		}
+		}
+	}
+
+}
