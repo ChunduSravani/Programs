@@ -1,0 +1,22 @@
+class Solution {
+    public int trap(int[] arr) {
+        int n=arr.length;
+        int maxl=0;
+        int maxr=0;
+        int l=0;
+        int r=n-1;
+        int sum=0;
+        while(l<=r){
+            maxl=Math.max(maxl,arr[l]);
+            maxr=Math.max(maxr,arr[r]);
+            if(maxl<=maxr){
+                sum+=maxl-arr[l];
+                l++;
+            }else{
+                sum+=maxr-arr[r];
+                r--;
+            }
+        }
+        return sum;
+    }
+}
