@@ -1,0 +1,29 @@
+public class Practice {
+	public static void main(String[] args) {
+		int arr[]= {3,2,3};
+		int cnt=1;
+		int ele=arr[0];
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]==ele)cnt++;
+			else {
+				cnt--;
+				if(cnt==0) {
+					cnt=1;
+					ele=arr[0];
+				}
+			}
+		}
+		cnt=0;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]==ele)cnt++;
+			
+		}
+		if(cnt>(arr.length/2)) {
+			System.out.println(ele+" ");
+		}
+		else {
+			System.out.println("-1");
+		}
+	}
+
+}
